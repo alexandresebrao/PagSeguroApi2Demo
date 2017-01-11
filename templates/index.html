@@ -7,36 +7,8 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <script type="text/javascript" src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript">
-    $( document ).ready(function() {
-        PagSeguroDirectPayment.setSessionId('{{session_id}}');
-        console.log()
 
-    });
-    $('#checkout').click(function(){
 
-        $.ajax
-        ({
-            url: '/checkout/',
-            data: {"sender_hash": PagSeguroDirectPayment.getSenderHash(),
-                "csrf_token" : {{csrf_token}} },
-            type: 'post',
-            success: function(result)
-            {
-                $('.modal-box').text(result).fadeIn(700, function()
-                {
-                    setTimeout(function()
-                    {
-                        $('.modal-box').fadeOut();
-                    }, 2000);
-                });
-            }
-        });
-    });
-</script>
-    </script>
 
       <title>Starter Template for Bootstrap</title>
 {# Load the tag library #}
@@ -44,7 +16,7 @@
 
 {# Load CSS and JavaScript #}
 {% bootstrap_css %}
-{% bootstrap_javascript %}
+
     <style>
     body {
     padding-top: 50px;
@@ -89,12 +61,14 @@
         <h1>Bootstrap starter template</h1>
         <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
         <p>
-            <form>
+            {%csrf_token%}
             <input type="hidden" id="sender_hash" name="sender_hash" value="" />
-            <input type="Submit" name="checkout" value="Pagar" id="checkout1"/>
+            <button class="btn" name="checkout" id="checkout"/>Pagar</button>
         </form>
         </p>
-        <p>Valor do Hash: {{sender_hash}}
+        <p>Valor do Hash: <span id="hashvalue"></span>{{sender_hash}}</p>
+        <p><span id="meiosdepagamento"></span></p>
+
       </div>
 
 
@@ -102,4 +76,45 @@
 
 
 </body>
+<script type="text/javascript" src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+$( document ).ready(function() {
+    PagSeguroDirectPayment.getPaymentMethods({
+        amount: 500.00,
+        success: function(response) {
+            $("#meiosdepagamento").text(response);
+        },
+        error: function(response) {
+            //tratamento do erro
+        },
+        complete: function(response) {
+            //tratamento comum para todas chamadas
+        }
+    });
+});
+
+function pag(response) {
+    $("#meiosdepagamento").text(response);
+}
+
+
+$('#checkout').click(function(){
+    PagSeguroDirectPayment.setSessionId('{{session_id}}');
+    var x = PagSeguroDirectPayment.getSenderHash();
+    $.ajax
+    ({
+        url: '/checkout/',
+        data: {"sender_hash": x.toString(),
+            "csrfmiddlewaretoken" : '{{csrf_token}}' },
+        type: 'post',
+        success: function(result)
+        {
+            $("#hashvalue").text(x);
+        }
+    });
+});
+
+</script>
+{% bootstrap_javascript %}
 </html>

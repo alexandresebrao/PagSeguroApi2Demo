@@ -31,8 +31,9 @@ def checkout(request):
     # api.checkout()
     # context = {'user': request.user}
     # data = PagSeguroApiTransparent().get_session_id()
-    print
+    print request.POST['sender_hash']
 
     context = {'sender_hash': request.POST['sender_hash']}
     template = 'index.html'
+
     return render(request, template, context)
