@@ -15,27 +15,26 @@
         console.log()
 
     });
-    $('.reserve-button').click(function(){
+    $('#checkout').click(function(){
 
-    var book_id = $(this).parent().data('id');
-
-    $.ajax
-    ({
-        url: '/checkout/',
-        data: {"sender_hash": PagSeguroDirectPayment.getSenderHash()},
-        type: 'post',
-        success: function(result)
-        {
-            $('.modal-box').text(result).fadeIn(700, function()
+        $.ajax
+        ({
+            url: '/checkout/',
+            data: {"sender_hash": PagSeguroDirectPayment.getSenderHash(),
+                "csrf_token" : {{csrf_token}} },
+            type: 'post',
+            success: function(result)
             {
-                setTimeout(function()
+                $('.modal-box').text(result).fadeIn(700, function()
                 {
-                    $('.modal-box').fadeOut();
-                }, 2000);
-            });
-        }
+                    setTimeout(function()
+                    {
+                        $('.modal-box').fadeOut();
+                    }, 2000);
+                });
+            }
+        });
     });
-});
 </script>
     </script>
 
@@ -90,12 +89,14 @@
         <h1>Bootstrap starter template</h1>
         <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
         <p>
-            <form method="POST" action="/checkout/">{%csrf_token%}
+            <form>
             <input type="hidden" id="sender_hash" name="sender_hash" value="" />
             <input type="Submit" name="checkout" value="Pagar" id="checkout1"/>
         </form>
         </p>
+        <p>Valor do Hash: {{sender_hash}}
       </div>
+
 
     </div><!-- /.container -->
 
