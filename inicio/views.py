@@ -1,11 +1,14 @@
 from django.shortcuts import render
 from pagseguro.api import PagSeguroApiTransparent, PagSeguroItem
+from django.http import HttpResponse, HttpResponseNotFound
 
 
 # Create your views here.
 def index(request):
-    context = {'user': request.user}
+    context = {}
     data = PagSeguroApiTransparent().get_session_id()
+    if not data['success']:
+        return HttpResponse('<h1>Error :()</h1>')
     context['session_id'] = data
     template = 'index.html'
     return render(request, template, context)
