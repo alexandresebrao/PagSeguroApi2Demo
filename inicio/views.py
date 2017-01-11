@@ -6,7 +6,7 @@ from pagseguro.api import PagSeguroApiTransparent, PagSeguroItem
 def index(request):
     context = {'user': request.user}
     data = PagSeguroApiTransparent().get_session_id()
-    context['session_id'] = data['session_id']
+    context['session_id'] = data
     template = 'index.html'
     return render(request, template, context)
 
