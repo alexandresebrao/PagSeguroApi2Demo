@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pagseguro',
     'bootstrap3',
+    'inicio.apps.InicioConfig',
 ]
 
 MIDDLEWARE = [

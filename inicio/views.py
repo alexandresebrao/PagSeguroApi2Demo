@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from pagseguro.api import PagSeguroApiTransparent, PagSeguroItem
+from pagseguro.api import PagSeguroApiTransparent
 from django.http import HttpResponse
+from inicio.models import PaymentPagSeguro, ItemPayment
 
 
 # Create your views here.
@@ -15,19 +16,30 @@ def index(request):
 
 
 def checkout(request):
-    api = PagSeguroApiTransparent()
-    if request.POST['payment'] == "boleto":
-        api.set_payment_method('boleto')
-        api.set_sender_hash(request.POST['sender_hash'])
-        # Item
-        item1 = PagSeguroItem(id='0001', description='Anucio', amount='39.00',
-                              quantity=1)
-        # Dados do Comprador
-        sender = {'name': 'Jose Comprador', 'area_code': 11, 'phone': 56273440,
-                  'email': 'comprador@sandbox.pagseguro.com.br', 'cpf': '22111944785'}
-        api.set_sender(**sender)
+    payment = PaymentPagSeguro()
+    payment.sender_name = "Alexandre"
+    payment.sender_area_code = "47"
+    payment.sender_phone = "992752990"
+    payment.sender_email = "alexandre.sebrao@gmail.com"
+    payment.sender_cpf = "12345678901234"
+    payment.shipping_street = "Rua Sob Desce desaparece"
+    payment.shipping_number = 12
+    payment.shipping_complement = ""
+    payment.shipping_district = "Rio de Janeiro"
+    payment.shipping_postalcode = "22750410"
+    payment.shipping_city = "Rio de Janeiro"
+    payment.shipping_state = "RJ"
+    payment.shipping_country = "BRA"
+    payment.type = 1
+    payment.save()
 
-        api.add_item(item1)
-        shipping = {'street': "Av. Brigadeiro Faria Lima", 'number': 1384, 'complement': '5o andar', 'district': 'Jardim Paulistano', 'postal_code': '01452002', 'city': 'Sao Paulo', 'state': 'SP', 'country': 'BRA',}
-        api.set_shipping(**shipping)
-        data = api.checkout()
+    item = ItemPayment()
+    item.ident = 1
+    item.description = "Anuncio"
+    item.amount = 29
+    item.quantity = 1
+    item.payment = payment
+    item.save()
+
+    payment.checkout(request.POST['sender_hash'])
+    return HttpResponse('<h1>Pronto :()</h1>')

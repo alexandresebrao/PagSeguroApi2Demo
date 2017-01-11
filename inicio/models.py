@@ -1,3 +1,4 @@
+# -*-coding:utf-8-*-
 from __future__ import unicode_literals
 from pagseguro.api import PagSeguroApiTransparent, PagSeguroItem
 from django.db import models
@@ -10,7 +11,7 @@ class PaymentPagSeguro(models.Model):
     )
     sender_name = models.TextField()
     sender_area_code = models.IntegerField()
-    sender_phone = models.CharField(max_length=15)
+    sender_phone = models.CharField(max_length=20)
     sender_email = models.TextField()
     sender_cpf = models.CharField(max_length=11)
     shipping_street = models.TextField()
@@ -21,8 +22,8 @@ class PaymentPagSeguro(models.Model):
     shipping_city = models.TextField()
     shipping_state = models.CharField(max_length=2)
     shipping_country = models.CharField(max_length=3)
-    payment_type = models.CharField(choices=TYPE_PAYMENT, max_length=1)
-    pagseguro_code = models.TextField()
+    type = models.CharField(choices=TYPE_PAYMENT, max_length=1)
+    pagseguro_code = models.TextField(blank=True, null=True)
 
     def sender_dictionary(self):
         return {'name': self.sender_name, 'area_code': self.area_code,
@@ -50,16 +51,17 @@ class PaymentPagSeguro(models.Model):
         if (self.payment_type == 1):
             api.set_payment_method('boleto')
         data = api.checkout()
-        data['']
+        self.pagseguro_code = data['code']
+        self.save()
 
 
 class ItemPayment(models.Model):
-    item_id = models.IntegerField()
-    item_description = models.TextField()
-    item_quantity = models.IntegerField()
-    item_amount = models.FloatField()
-    payment_pagseguro = models.ForeignKey(PaymentPagSeguro)
+    ident = models.IntegerField()
+    description = models.TextField()
+    quantity = models.IntegerField()
+    amount = models.FloatField()
+    payment = models.ForeignKey(PaymentPagSeguro)
 
     def dictionary(self):
-        return {'id': self.item_id, 'item_description': self.item_description,
-                'amount': self.item_amout, 'quantity': self.quantity}
+        return {'id': self.ident, 'item_description': self.description,
+                'amount': self.amount, 'quantity': self.quantity}
