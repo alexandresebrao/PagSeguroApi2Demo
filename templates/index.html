@@ -58,20 +58,31 @@
             {% bootstrap_messages %}
 
       <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-        <p>
-            {%csrf_token%}
-            <input type="hidden" id="sender_hash" name="sender_hash" value="" />
-            <button class="btn" name="checkout" id="checkout"/>Pagar</button>
-        </form>
-        </p>
-        <p>Valor do Hash: <span id="hashvalue"></span>{{sender_hash}}</p>
-        <p><span id="meiosdepagamento"></span></p>
+          <div hidden class="panel panel-info" id="PaymentOptionPanel">
+              <div class="panel-heading">
+                <h3 class="panel-title">Formas de Pagamento</h3>
+              </div>
+            <div class="panel-body">
+                <table height="100%" width="100%">
 
+                    <tbody>
+                        <tr>
+                            <td><img src="http://www.edersonferreira.com.br/wp-content/uploads/2014/01/boleto_01-20.jpg" height="200px" width="350px"/></td>
+                            <td><img src="http://img.freepik.com/icones-gratis/cartao-de-credito_318-138586.jpg?size=338&ext=jpg" height="200px" width="350px"/></td>
+                        </tr>
+                        <tr>
+                            <td>Boleto Bancário: <input id="boletoRadio" type="radio" name="changePaymentMethod" value="boleto" /></td>
+                            <td>Cartão de Crédito: <input id="creditCardRadio" type="radio" name="changePaymentMethod" value="creditCard" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+          </div>
+          <div hidden id="boleto">Aqui fica o pagamento do boleto</div>
+          <div hidden id="creditCard">Aqui fica o pagamento do Cartão</div>
       </div>
-
-
     </div><!-- /.container -->
 
 
@@ -79,11 +90,13 @@
 <script type="text/javascript" src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
+
 $( document ).ready(function() {
+    PagSeguroDirectPayment.setSessionId('{{session_id}}');
     PagSeguroDirectPayment.getPaymentMethods({
         amount: 500.00,
         success: function(response) {
-            $("#meiosdepagamento").text(response);
+            $('#PaymentOptionPanel').show();
         },
         error: function(response) {
             //tratamento do erro
@@ -94,13 +107,35 @@ $( document ).ready(function() {
     });
 });
 
-function pag(response) {
-    $("#meiosdepagamento").text(response);
-}
+$('input:radio[name="changePaymentMethod"]').change(
+    function(){
 
+        // checks that the clicked radio button is the one of value 'Yes'
+        // the value of the element is the one that's checked (as noted by @shef in comments)
+        if ($(this).val() == 'boleto') {
+
+            $("#creditCard").hide();
+            $("#boleto").show();
+        }
+        else {
+            $("#creditCard").show();
+            $("#boleto").hide();
+        }
+});
+
+$('#cartaodecreditonum').keypress(function() {
+    PagSeguroDirectPayment.getBrand({
+        cardBin: $('#cartaodecreditonum').val(),
+        success: function(response) {
+            $('#PaymentOptionPanel').hide();
+        }
+        // error: /*{função de callback para chamadas que falharam}*/,
+        // complete: /*{função de callback para todas chamadas}*/
+    });
+});
 
 $('#checkout').click(function(){
-    PagSeguroDirectPayment.setSessionId('{{session_id}}');
+
     var x = PagSeguroDirectPayment.getSenderHash();
     $.ajax
     ({
