@@ -9,7 +9,7 @@ def index(request):
     data = PagSeguroApiTransparent().get_session_id()
     if not data['success']:
         return HttpResponse('<h1>Error :()</h1>')
-    context['session_id'] = data
+    context['session_id'] = data['session_id']
     template = 'index.html'
     return render(request, template, context)
 
