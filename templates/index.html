@@ -7,6 +7,17 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
+    <script type="text/javascript" src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript">
+    $( document ).ready(function() {
+        PagSeguroDirectPayment.setSessionId('{{session_id}}');
+        console.log(PagSeguroDirectPayment.getSenderHash())
+        $('#sender_hash').val(PagSeguroDirectPayment.getSenderHash());
+
+    });
+    </script>
+
       <title>Starter Template for Bootstrap</title>
 {# Load the tag library #}
 {% load bootstrap3 %}
@@ -57,6 +68,11 @@
       <div class="starter-template">
         <h1>Bootstrap starter template</h1>
         <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+        <p>
+            <form>{%csrf_token%}</form>
+            <input type="hidden" id="sender_hash" name="sender_hash" value="" />
+        </form>
+        </p>
       </div>
 
     </div><!-- /.container -->

@@ -1,0 +1,13 @@
+pid=
+
+cert = stunnel/stunnel.pem
+sslVersion = all
+options = NO_SSLv2
+foreground = yes
+output = stunnel.log
+
+[https]
+client = yes
+accept=8443
+connect=0.0.0.0:8001
+TIMEOUTclose=1

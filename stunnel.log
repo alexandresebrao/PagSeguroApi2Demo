@@ -1,0 +1,257 @@
+2017.01.11 12:00:47 LOG5[2884:140563011233600]: stunnel 4.53 on x86_64-pc-linux-gnu platform
+2017.01.11 12:00:47 LOG5[2884:140563011233600]: Compiled with OpenSSL 1.0.1e 11 Feb 2013
+2017.01.11 12:00:47 LOG5[2884:140563011233600]: Running  with OpenSSL 1.0.1f 6 Jan 2014
+2017.01.11 12:00:47 LOG5[2884:140563011233600]: Update OpenSSL shared libraries or rebuild stunnel
+2017.01.11 12:00:47 LOG5[2884:140563011233600]: Threading:PTHREAD SSL:+ENGINE+OCSP Auth:LIBWRAP Sockets:POLL+IPv6
+2017.01.11 12:00:47 LOG5[2884:140563011233600]: Reading configuration from file stunnel/dev_https
+2017.01.11 12:00:47 LOG4[2884:140563011233600]: Insecure file permissions on stunnel/stunnel.pem
+2017.01.11 12:00:47 LOG5[2884:140563011233600]: Configuration successful
+2017.01.11 12:01:03 LOG5[2884:140563011159808]: Service [https] accepted connection from 192.168.25.3:50661
+2017.01.11 12:01:03 LOG3[2884:140563011159808]: SSL_accept: 1408F10B: error:1408F10B:SSL routines:SSL3_GET_RECORD:wrong version number
+2017.01.11 12:01:03 LOG5[2884:140563011159808]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:01:03 LOG5[2884:140563011090176]: Service [https] accepted connection from 192.168.25.3:50662
+2017.01.11 12:01:03 LOG3[2884:140563011090176]: SSL_accept: 1408F10B: error:1408F10B:SSL routines:SSL3_GET_RECORD:wrong version number
+2017.01.11 12:01:03 LOG5[2884:140563011090176]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:01:05 LOG5[2884:140563011090176]: Service [https] accepted connection from 192.168.25.3:50663
+2017.01.11 12:01:05 LOG3[2884:140563011229440]: SSL_accept: 1408F10B: error:1408F10B:SSL routines:SSL3_GET_RECORD:wrong version number
+2017.01.11 12:01:05 LOG5[2884:140563011090176]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:01:05 LOG5[2884:140563011229440]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:01:05 LOG5[2884:140563011159808]: Service [https] accepted connection from 192.168.25.3:50665
+2017.01.11 12:01:05 LOG3[2884:140563011159808]: SSL_accept: 1408F10B: error:1408F10B:SSL routines:SSL3_GET_RECORD:wrong version number
+2017.01.11 12:01:05 LOG5[2884:140563011159808]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:04:04 LOG5[2884:140563011159808]: Service [https] accepted connection from 192.168.25.3:50752
+2017.01.11 12:04:04 LOG3[2884:140563011159808]: SSL_accept: 1408F10B: error:1408F10B:SSL routines:SSL3_GET_RECORD:wrong version number
+2017.01.11 12:04:04 LOG5[2884:140563011159808]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:04:04 LOG5[2884:140563011159808]: Service [https] accepted connection from 192.168.25.3:50753
+2017.01.11 12:04:04 LOG3[2884:140563011159808]: SSL_accept: 1408F10B: error:1408F10B:SSL routines:SSL3_GET_RECORD:wrong version number
+2017.01.11 12:04:04 LOG5[2884:140563011159808]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:04:04 LOG5[2884:140563011159808]: Service [https] accepted connection from 192.168.25.3:50754
+2017.01.11 12:04:04 LOG3[2884:140563011159808]: SSL_accept: 1408F10B: error:1408F10B:SSL routines:SSL3_GET_RECORD:wrong version number
+2017.01.11 12:04:04 LOG5[2884:140563011159808]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:05:34 LOG5[2884:140563011159808]: Service [https] accepted connection from 192.168.25.3:50784
+2017.01.11 12:05:34 LOG3[2884:140563011159808]: SSL_accept: 1408F10B: error:1408F10B:SSL routines:SSL3_GET_RECORD:wrong version number
+2017.01.11 12:05:34 LOG5[2884:140563011159808]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:05:34 LOG5[2884:140563011159808]: Service [https] accepted connection from 192.168.25.3:50785
+2017.01.11 12:05:34 LOG3[2884:140563011159808]: SSL_accept: 1408F10B: error:1408F10B:SSL routines:SSL3_GET_RECORD:wrong version number
+2017.01.11 12:05:34 LOG5[2884:140563011159808]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:05:34 LOG5[2884:140563011159808]: Service [https] accepted connection from 192.168.25.3:50786
+2017.01.11 12:05:34 LOG3[2884:140563011159808]: SSL_accept: 1408F10B: error:1408F10B:SSL routines:SSL3_GET_RECORD:wrong version number
+2017.01.11 12:05:34 LOG5[2884:140563011159808]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:05:37 LOG5[2884:140563011159808]: Service [https] accepted connection from 192.168.25.3:50788
+2017.01.11 12:05:37 LOG3[2884:140563011159808]: SSL_accept: 1408F10B: error:1408F10B:SSL routines:SSL3_GET_RECORD:wrong version number
+2017.01.11 12:05:37 LOG5[2884:140563011159808]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:05:37 LOG5[2884:140563011159808]: Service [https] accepted connection from 192.168.25.3:50789
+2017.01.11 12:05:37 LOG3[2884:140563011159808]: SSL_accept: 1408F10B: error:1408F10B:SSL routines:SSL3_GET_RECORD:wrong version number
+2017.01.11 12:05:37 LOG5[2884:140563011159808]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:05:37 LOG5[2884:140563011159808]: Service [https] accepted connection from 192.168.25.3:50790
+2017.01.11 12:05:37 LOG3[2884:140563011159808]: SSL_accept: 1408F10B: error:1408F10B:SSL routines:SSL3_GET_RECORD:wrong version number
+2017.01.11 12:05:37 LOG5[2884:140563011159808]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:08:26 LOG5[2884:140563011159808]: Service [https] accepted connection from 192.168.25.3:50804
+2017.01.11 12:08:26 LOG3[2884:140563011159808]: SSL_accept: 1408F10B: error:1408F10B:SSL routines:SSL3_GET_RECORD:wrong version number
+2017.01.11 12:08:26 LOG5[2884:140563011159808]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:08:26 LOG5[2884:140563011159808]: Service [https] accepted connection from 192.168.25.3:50805
+2017.01.11 12:08:26 LOG3[2884:140563011159808]: SSL_accept: 1408F10B: error:1408F10B:SSL routines:SSL3_GET_RECORD:wrong version number
+2017.01.11 12:08:26 LOG5[2884:140563011159808]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:08:26 LOG5[2884:140563011159808]: Service [https] accepted connection from 192.168.25.3:50806
+2017.01.11 12:08:26 LOG3[2884:140563011159808]: SSL_accept: 1408F10B: error:1408F10B:SSL routines:SSL3_GET_RECORD:wrong version number
+2017.01.11 12:08:26 LOG5[2884:140563011159808]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:10:48 LOG5[2884:140563011159808]: Service [https] accepted connection from 192.168.25.3:50848
+2017.01.11 12:10:48 LOG5[2884:140563011229440]: Service [https] accepted connection from 192.168.25.3:50849
+2017.01.11 12:10:48 LOG3[2884:140563011159808]: SSL_accept: 1408F10B: error:1408F10B:SSL routines:SSL3_GET_RECORD:wrong version number
+2017.01.11 12:10:48 LOG5[2884:140563011159808]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:10:48 LOG3[2884:140563011229440]: SSL_accept: 1408F10B: error:1408F10B:SSL routines:SSL3_GET_RECORD:wrong version number
+2017.01.11 12:10:48 LOG5[2884:140563011229440]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:10:48 LOG5[2884:140563011229440]: Service [https] accepted connection from 192.168.25.3:50850
+2017.01.11 12:10:48 LOG3[2884:140563011229440]: SSL_accept: 1408F10B: error:1408F10B:SSL routines:SSL3_GET_RECORD:wrong version number
+2017.01.11 12:10:48 LOG5[2884:140563011229440]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:10:48 LOG5[2884:140563011229440]: Service [https] accepted connection from 192.168.25.3:50851
+2017.01.11 12:10:48 LOG3[2884:140563011229440]: SSL_accept: 1408F10B: error:1408F10B:SSL routines:SSL3_GET_RECORD:wrong version number
+2017.01.11 12:10:48 LOG5[2884:140563011229440]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:10:53 LOG5[2884:140563011229440]: Service [https] accepted connection from 192.168.25.3:50852
+2017.01.11 12:10:53 LOG3[2884:140563011229440]: SSL_accept: 1408F10B: error:1408F10B:SSL routines:SSL3_GET_RECORD:wrong version number
+2017.01.11 12:10:53 LOG5[2884:140563011229440]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:11:23 LOG5[2884:140563011229440]: Service [https] accepted connection from 192.168.25.3:50853
+2017.01.11 12:11:23 LOG3[2884:140563011229440]: SSL_accept: 1408F10B: error:1408F10B:SSL routines:SSL3_GET_RECORD:wrong version number
+2017.01.11 12:11:23 LOG5[2884:140563011229440]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:11:31 LOG5[2884:140563011233600]: Terminated
+2017.01.11 12:11:39 LOG5[3241:139891415861056]: stunnel 4.53 on x86_64-pc-linux-gnu platform
+2017.01.11 12:11:39 LOG5[3241:139891415861056]: Compiled with OpenSSL 1.0.1e 11 Feb 2013
+2017.01.11 12:11:39 LOG5[3241:139891415861056]: Running  with OpenSSL 1.0.1f 6 Jan 2014
+2017.01.11 12:11:39 LOG5[3241:139891415861056]: Update OpenSSL shared libraries or rebuild stunnel
+2017.01.11 12:11:39 LOG5[3241:139891415861056]: Threading:PTHREAD SSL:+ENGINE+OCSP Auth:LIBWRAP Sockets:POLL+IPv6
+2017.01.11 12:11:39 LOG5[3241:139891415861056]: Reading configuration from file stunnel/dev_https
+2017.01.11 12:11:39 LOG4[3241:139891415861056]: Insecure file permissions on stunnel/stunnel.pem
+2017.01.11 12:11:39 LOG5[3241:139891415861056]: Configuration successful
+2017.01.11 12:11:42 LOG5[3241:139891415705344]: Service [https] accepted connection from 192.168.25.3:50855
+2017.01.11 12:11:42 LOG5[3241:139891415815936]: Service [https] accepted connection from 192.168.25.3:50854
+2017.01.11 12:11:42 LOG3[3241:139891415815936]: connect_blocking: connect 127.0.0.1:8001: Connection refused (111)
+2017.01.11 12:11:42 LOG3[3241:139891415705344]: connect_blocking: connect 127.0.0.1:8001: Connection refused (111)
+2017.01.11 12:11:42 LOG5[3241:139891415815936]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:11:42 LOG5[3241:139891415705344]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:11:42 LOG5[3241:139891415815936]: Service [https] accepted connection from 192.168.25.3:50856
+2017.01.11 12:11:42 LOG3[3241:139891415815936]: connect_blocking: connect 127.0.0.1:8001: Connection refused (111)
+2017.01.11 12:11:42 LOG5[3241:139891415815936]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:11:43 LOG5[3241:139891415705344]: Service [https] accepted connection from 192.168.25.3:50858
+2017.01.11 12:11:43 LOG5[3241:139891415705344]: connect_blocking: connected 127.0.0.1:8001
+2017.01.11 12:11:43 LOG5[3241:139891415705344]: Service [https] connected remote server from 127.0.0.1:46167
+2017.01.11 12:11:43 LOG5[3241:139891415815936]: Service [https] accepted connection from 192.168.25.3:50857
+2017.01.11 12:11:43 LOG5[3241:139891415815936]: connect_blocking: connected 127.0.0.1:8001
+2017.01.11 12:11:43 LOG5[3241:139891415815936]: Service [https] connected remote server from 127.0.0.1:46168
+2017.01.11 12:11:43 LOG3[3241:139891415705344]: SSL_connect: 140770FC: error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+2017.01.11 12:11:43 LOG5[3241:139891415705344]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:11:43 LOG3[3241:139891415815936]: SSL_connect: 140770FC: error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+2017.01.11 12:11:43 LOG5[3241:139891415815936]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:11:44 LOG5[3241:139891415815936]: Service [https] accepted connection from 192.168.25.3:50859
+2017.01.11 12:11:44 LOG5[3241:139891415815936]: connect_blocking: connected 127.0.0.1:8001
+2017.01.11 12:11:44 LOG5[3241:139891415815936]: Service [https] connected remote server from 127.0.0.1:46169
+2017.01.11 12:11:44 LOG3[3241:139891415815936]: SSL_connect: 140770FC: error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+2017.01.11 12:11:44 LOG5[3241:139891415815936]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:11:44 LOG5[3241:139891415705344]: Service [https] accepted connection from 192.168.25.3:50861
+2017.01.11 12:11:44 LOG5[3241:139891415705344]: connect_blocking: connected 127.0.0.1:8001
+2017.01.11 12:11:44 LOG5[3241:139891415815936]: Service [https] accepted connection from 192.168.25.3:50860
+2017.01.11 12:11:44 LOG5[3241:139891415705344]: Service [https] connected remote server from 127.0.0.1:46170
+2017.01.11 12:11:44 LOG5[3241:139891415815936]: connect_blocking: connected 127.0.0.1:8001
+2017.01.11 12:11:44 LOG5[3241:139891415815936]: Service [https] connected remote server from 127.0.0.1:46171
+2017.01.11 12:11:44 LOG3[3241:139891415705344]: SSL_connect: 140770FC: error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+2017.01.11 12:11:44 LOG5[3241:139891415705344]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:11:44 LOG3[3241:139891415815936]: SSL_connect: 140770FC: error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+2017.01.11 12:11:44 LOG5[3241:139891415815936]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:11:44 LOG5[3241:139891415815936]: Service [https] accepted connection from 192.168.25.3:50862
+2017.01.11 12:11:44 LOG5[3241:139891415815936]: connect_blocking: connected 127.0.0.1:8001
+2017.01.11 12:11:44 LOG5[3241:139891415815936]: Service [https] connected remote server from 127.0.0.1:46172
+2017.01.11 12:11:44 LOG3[3241:139891415815936]: SSL_connect: 140770FC: error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+2017.01.11 12:11:44 LOG5[3241:139891415815936]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:11:45 LOG5[3241:139891415705344]: Service [https] accepted connection from 192.168.25.3:50864
+2017.01.11 12:11:45 LOG5[3241:139891415705344]: connect_blocking: connected 127.0.0.1:8001
+2017.01.11 12:11:45 LOG5[3241:139891415705344]: Service [https] connected remote server from 127.0.0.1:46173
+2017.01.11 12:11:45 LOG5[3241:139891415815936]: Service [https] accepted connection from 192.168.25.3:50863
+2017.01.11 12:11:45 LOG5[3241:139891415815936]: connect_blocking: connected 127.0.0.1:8001
+2017.01.11 12:11:45 LOG5[3241:139891415815936]: Service [https] connected remote server from 127.0.0.1:46174
+2017.01.11 12:11:45 LOG3[3241:139891415705344]: SSL_connect: 140770FC: error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+2017.01.11 12:11:45 LOG5[3241:139891415705344]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:11:45 LOG3[3241:139891415815936]: SSL_connect: 140770FC: error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+2017.01.11 12:11:45 LOG5[3241:139891415815936]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:11:45 LOG5[3241:139891415815936]: Service [https] accepted connection from 192.168.25.3:50865
+2017.01.11 12:11:45 LOG5[3241:139891415815936]: connect_blocking: connected 127.0.0.1:8001
+2017.01.11 12:11:45 LOG5[3241:139891415815936]: Service [https] connected remote server from 127.0.0.1:46175
+2017.01.11 12:11:45 LOG3[3241:139891415815936]: SSL_connect: 140770FC: error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+2017.01.11 12:11:45 LOG5[3241:139891415815936]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:11:49 LOG5[3241:139891415705344]: Service [https] accepted connection from 192.168.25.3:50867
+2017.01.11 12:11:49 LOG5[3241:139891415705344]: connect_blocking: connected 127.0.0.1:8001
+2017.01.11 12:11:49 LOG5[3241:139891415705344]: Service [https] connected remote server from 127.0.0.1:46176
+2017.01.11 12:11:49 LOG5[3241:139891415815936]: Service [https] accepted connection from 192.168.25.3:50866
+2017.01.11 12:11:49 LOG5[3241:139891415815936]: connect_blocking: connected 127.0.0.1:8001
+2017.01.11 12:11:49 LOG3[3241:139891415705344]: SSL_connect: 140770FC: error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+2017.01.11 12:11:49 LOG5[3241:139891415705344]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:11:49 LOG5[3241:139891415815936]: Service [https] connected remote server from 127.0.0.1:46177
+2017.01.11 12:11:49 LOG3[3241:139891415815936]: SSL_connect: 140770FC: error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+2017.01.11 12:11:49 LOG5[3241:139891415815936]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:11:49 LOG5[3241:139891415815936]: Service [https] accepted connection from 192.168.25.3:50868
+2017.01.11 12:11:49 LOG5[3241:139891415815936]: connect_blocking: connected 127.0.0.1:8001
+2017.01.11 12:11:49 LOG5[3241:139891415815936]: Service [https] connected remote server from 127.0.0.1:46178
+2017.01.11 12:11:49 LOG3[3241:139891415815936]: SSL_connect: 140770FC: error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+2017.01.11 12:11:49 LOG5[3241:139891415815936]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:12:28 LOG5[3241:139891415861056]: Terminated
+2017.01.11 12:12:30 LOG5[3291:140278204299072]: stunnel 4.53 on x86_64-pc-linux-gnu platform
+2017.01.11 12:12:30 LOG5[3291:140278204299072]: Compiled with OpenSSL 1.0.1e 11 Feb 2013
+2017.01.11 12:12:30 LOG5[3291:140278204299072]: Running  with OpenSSL 1.0.1f 6 Jan 2014
+2017.01.11 12:12:30 LOG5[3291:140278204299072]: Update OpenSSL shared libraries or rebuild stunnel
+2017.01.11 12:12:30 LOG5[3291:140278204299072]: Threading:PTHREAD SSL:+ENGINE+OCSP Auth:LIBWRAP Sockets:POLL+IPv6
+2017.01.11 12:12:30 LOG5[3291:140278204299072]: Reading configuration from file stunnel/dev_https
+2017.01.11 12:12:30 LOG4[3291:140278204299072]: Insecure file permissions on stunnel/stunnel.pem
+2017.01.11 12:12:30 LOG5[3291:140278204299072]: Configuration successful
+2017.01.11 12:12:49 LOG5[3291:140278204143360]: Service [https] accepted connection from 192.168.25.3:50886
+2017.01.11 12:12:49 LOG5[3291:140278204253952]: Service [https] accepted connection from 192.168.25.3:50885
+2017.01.11 12:12:49 LOG5[3291:140278204143360]: connect_blocking: connected 127.0.0.1:8001
+2017.01.11 12:12:49 LOG5[3291:140278204253952]: connect_blocking: connected 127.0.0.1:8001
+2017.01.11 12:12:49 LOG5[3291:140278204143360]: Service [https] connected remote server from 127.0.0.1:46179
+2017.01.11 12:12:49 LOG5[3291:140278204253952]: Service [https] connected remote server from 127.0.0.1:46180
+2017.01.11 12:12:49 LOG3[3291:140278204143360]: SSL_connect: 140770FC: error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+2017.01.11 12:12:49 LOG5[3291:140278204143360]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:12:49 LOG3[3291:140278204253952]: SSL_connect: 140770FC: error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+2017.01.11 12:12:49 LOG5[3291:140278204253952]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:12:49 LOG5[3291:140278204253952]: Service [https] accepted connection from 192.168.25.3:50887
+2017.01.11 12:12:49 LOG5[3291:140278204253952]: connect_blocking: connected 127.0.0.1:8001
+2017.01.11 12:12:49 LOG5[3291:140278204253952]: Service [https] connected remote server from 127.0.0.1:46181
+2017.01.11 12:12:49 LOG3[3291:140278204253952]: SSL_connect: 140770FC: error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+2017.01.11 12:12:49 LOG5[3291:140278204253952]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:12:49 LOG5[3291:140278204253952]: Service [https] accepted connection from 192.168.25.3:50888
+2017.01.11 12:12:49 LOG5[3291:140278204253952]: connect_blocking: connected 127.0.0.1:8001
+2017.01.11 12:12:49 LOG5[3291:140278204253952]: Service [https] connected remote server from 127.0.0.1:46182
+2017.01.11 12:12:49 LOG3[3291:140278204253952]: SSL_connect: 140770FC: error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+2017.01.11 12:12:49 LOG5[3291:140278204253952]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:12:49 LOG5[3291:140278204253952]: Service [https] accepted connection from 192.168.25.3:50889
+2017.01.11 12:12:49 LOG5[3291:140278204253952]: connect_blocking: connected 127.0.0.1:8001
+2017.01.11 12:12:49 LOG5[3291:140278204253952]: Service [https] connected remote server from 127.0.0.1:46183
+2017.01.11 12:12:49 LOG3[3291:140278204253952]: SSL_connect: 140770FC: error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+2017.01.11 12:12:49 LOG5[3291:140278204253952]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:12:49 LOG5[3291:140278204143360]: Service [https] accepted connection from 192.168.25.3:50890
+2017.01.11 12:12:49 LOG5[3291:140278204143360]: connect_blocking: connected 127.0.0.1:8001
+2017.01.11 12:12:49 LOG5[3291:140278204143360]: Service [https] connected remote server from 127.0.0.1:46184
+2017.01.11 12:12:49 LOG3[3291:140278204143360]: SSL_connect: 140770FC: error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+2017.01.11 12:12:49 LOG5[3291:140278204143360]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:12:54 LOG5[3291:140278204143360]: Service [https] accepted connection from 192.168.25.3:50891
+2017.01.11 12:12:54 LOG5[3291:140278204143360]: connect_blocking: connected 127.0.0.1:8001
+2017.01.11 12:12:54 LOG5[3291:140278204143360]: Service [https] connected remote server from 127.0.0.1:46185
+2017.01.11 12:12:54 LOG3[3291:140278204143360]: SSL_connect: 140770FC: error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+2017.01.11 12:12:54 LOG5[3291:140278204143360]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:12:54 LOG5[3291:140278204143360]: Service [https] accepted connection from 192.168.25.3:50892
+2017.01.11 12:12:54 LOG5[3291:140278204143360]: connect_blocking: connected 127.0.0.1:8001
+2017.01.11 12:12:54 LOG5[3291:140278204143360]: Service [https] connected remote server from 127.0.0.1:46186
+2017.01.11 12:12:54 LOG3[3291:140278204143360]: SSL_connect: 140770FC: error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+2017.01.11 12:12:54 LOG5[3291:140278204143360]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:12:55 LOG5[3291:140278204143360]: Service [https] accepted connection from 192.168.25.3:50893
+2017.01.11 12:12:55 LOG5[3291:140278204143360]: connect_blocking: connected 127.0.0.1:8001
+2017.01.11 12:12:55 LOG5[3291:140278204143360]: Service [https] connected remote server from 127.0.0.1:46187
+2017.01.11 12:12:55 LOG3[3291:140278204143360]: SSL_connect: 140770FC: error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+2017.01.11 12:12:55 LOG5[3291:140278204143360]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:12:55 LOG5[3291:140278204143360]: Service [https] accepted connection from 192.168.25.3:50894
+2017.01.11 12:12:55 LOG5[3291:140278204143360]: connect_blocking: connected 127.0.0.1:8001
+2017.01.11 12:12:55 LOG5[3291:140278204143360]: Service [https] connected remote server from 127.0.0.1:46188
+2017.01.11 12:12:55 LOG3[3291:140278204143360]: SSL_connect: 140770FC: error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+2017.01.11 12:12:55 LOG5[3291:140278204143360]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:12:55 LOG5[3291:140278204143360]: Service [https] accepted connection from 192.168.25.3:50895
+2017.01.11 12:12:55 LOG5[3291:140278204143360]: connect_blocking: connected 127.0.0.1:8001
+2017.01.11 12:12:55 LOG5[3291:140278204143360]: Service [https] connected remote server from 127.0.0.1:46189
+2017.01.11 12:12:55 LOG3[3291:140278204143360]: SSL_connect: 140770FC: error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+2017.01.11 12:12:55 LOG5[3291:140278204143360]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:13:24 LOG5[3291:140278204143360]: Service [https] accepted connection from 192.168.25.3:50896
+2017.01.11 12:13:24 LOG3[3291:140278204143360]: connect_blocking: connect 127.0.0.1:8001: Connection refused (111)
+2017.01.11 12:13:24 LOG5[3291:140278204143360]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:13:24 LOG5[3291:140278204143360]: Service [https] accepted connection from 192.168.25.3:50897
+2017.01.11 12:13:24 LOG3[3291:140278204143360]: connect_blocking: connect 127.0.0.1:8001: Connection refused (111)
+2017.01.11 12:13:24 LOG5[3291:140278204143360]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:13:48 LOG5[3291:140278204299072]: Terminated
+2017.01.11 12:13:59 LOG5[3348:139804762629952]: stunnel 4.53 on x86_64-pc-linux-gnu platform
+2017.01.11 12:13:59 LOG5[3348:139804762629952]: Compiled with OpenSSL 1.0.1e 11 Feb 2013
+2017.01.11 12:13:59 LOG5[3348:139804762629952]: Running  with OpenSSL 1.0.1f 6 Jan 2014
+2017.01.11 12:13:59 LOG5[3348:139804762629952]: Update OpenSSL shared libraries or rebuild stunnel
+2017.01.11 12:13:59 LOG5[3348:139804762629952]: Threading:PTHREAD SSL:+ENGINE+OCSP Auth:LIBWRAP Sockets:POLL+IPv6
+2017.01.11 12:13:59 LOG5[3348:139804762629952]: Reading configuration from file stunnel/dev_https
+2017.01.11 12:13:59 LOG4[3348:139804762629952]: Insecure file permissions on stunnel/stunnel.pem
+2017.01.11 12:13:59 LOG5[3348:139804762629952]: Configuration successful
+2017.01.11 12:14:13 LOG5[3348:139804762584832]: Service [https] accepted connection from 192.168.25.3:50900
+2017.01.11 12:14:13 LOG5[3348:139804762584832]: connect_blocking: connected 0.0.0.0:8001
+2017.01.11 12:14:13 LOG5[3348:139804762584832]: Service [https] connected remote server from 127.0.0.1:46192
+2017.01.11 12:14:13 LOG3[3348:139804762584832]: SSL_connect: 140770FC: error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+2017.01.11 12:14:13 LOG5[3348:139804762584832]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:14:13 LOG5[3348:139804762584832]: Service [https] accepted connection from 192.168.25.3:50901
+2017.01.11 12:14:13 LOG5[3348:139804762584832]: connect_blocking: connected 0.0.0.0:8001
+2017.01.11 12:14:13 LOG5[3348:139804762584832]: Service [https] connected remote server from 127.0.0.1:46193
+2017.01.11 12:14:13 LOG3[3348:139804762584832]: SSL_connect: 140770FC: error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+2017.01.11 12:14:13 LOG5[3348:139804762584832]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:14:13 LOG5[3348:139804762584832]: Service [https] accepted connection from 192.168.25.3:50902
+2017.01.11 12:14:13 LOG5[3348:139804762584832]: connect_blocking: connected 0.0.0.0:8001
+2017.01.11 12:14:13 LOG5[3348:139804762584832]: Service [https] connected remote server from 127.0.0.1:46194
+2017.01.11 12:14:13 LOG3[3348:139804762584832]: SSL_connect: 140770FC: error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+2017.01.11 12:14:13 LOG5[3348:139804762584832]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:14:24 LOG5[3348:139804762584832]: Service [https] accepted connection from 192.168.25.3:50903
+2017.01.11 12:14:24 LOG5[3348:139804762584832]: connect_blocking: connected 0.0.0.0:8001
+2017.01.11 12:14:24 LOG5[3348:139804762584832]: Service [https] connected remote server from 127.0.0.1:46195
+2017.01.11 12:14:24 LOG3[3348:139804762584832]: SSL_connect: 140770FC: error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+2017.01.11 12:14:24 LOG5[3348:139804762584832]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.11 12:14:24 LOG5[3348:139804762584832]: Service [https] accepted connection from 192.168.25.3:50904
+2017.01.11 12:14:24 LOG5[3348:139804762584832]: connect_blocking: connected 0.0.0.0:8001
+2017.01.11 12:14:24 LOG5[3348:139804762584832]: Service [https] connected remote server from 127.0.0.1:46196
+2017.01.11 12:14:24 LOG3[3348:139804762584832]: SSL_connect: 140770FC: error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol
+2017.01.11 12:14:24 LOG5[3348:139804762584832]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
