@@ -26,9 +26,9 @@ class PaymentPagSeguro(models.Model):
     pagseguro_code = models.TextField(blank=True, null=True)
 
     def sender_dictionary(self):
-        return {'name': self.sender_name, 'area_code': self.area_code,
-                'phone': self.sender_phone, 'email': self.email,
-                'cpf': self.cpf}
+        return {'name': self.sender_name, 'area_code': self.sender_area_code,
+                'phone': self.sender_phone, 'email': self.sender_email,
+                'cpf': self.sender_cpf}
 
     def shipping_dictionary(self):
         return {'street': self.shipping_street, 'number': self.shipping_number,
@@ -44,15 +44,22 @@ class PaymentPagSeguro(models.Model):
 
         # Adicionamos os Items comprados
         for item in self.itempayment_set.all():
-            api.add_item(PagSeguroItem(item.dictionary()))
-
+            api.add_item(item.pagseguroitem())
+        api.set_sender_hash(sender_hash)
         api.set_sender(**self.sender_dictionary())
         api.set_shipping(**self.shipping_dictionary())
-        if (self.payment_type == 1):
+        if (self.type == 1):
             api.set_payment_method('boleto')
         data = api.checkout()
-        self.pagseguro_code = data['code']
+        self.pagseguro_code = data['transaction']['code']
         self.save()
+        boleto = Boleto()
+        boleto.url = data['transaction']['paymentLink']
+        boleto.payment = self
+        boleto.save()
+
+    def boleto_url(self):
+        return Boleto.objects.get(payment=self).url
 
 
 class ItemPayment(models.Model):
@@ -62,6 +69,12 @@ class ItemPayment(models.Model):
     amount = models.FloatField()
     payment = models.ForeignKey(PaymentPagSeguro)
 
-    def dictionary(self):
-        return {'id': self.ident, 'item_description': self.description,
-                'amount': self.amount, 'quantity': self.quantity}
+    def pagseguroitem(self):
+        return PagSeguroItem(id=self.ident, description=self.description,
+                             amount=("%.2f" % self.amount),
+                             quantity=self.quantity)
+
+
+class Boleto(models.Model):
+    url = models.TextField()
+    payment = models.OneToOneField(PaymentPagSeguro)

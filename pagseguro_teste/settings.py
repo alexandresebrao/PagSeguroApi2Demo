@@ -1,4 +1,4 @@
-#-*-coding:utf-8-*-
+# -*-coding:utf-8-*-
 """
 Django settings for pagseguro_teste project.
 
@@ -15,8 +15,8 @@ import os
 
 PAGSEGURO_EMAIL = 'alexandre.sebrao@gmail.com'
 PAGSEGURO_TOKEN = 'DE688CC5BB364D269F405C71E9353273'
-PAGSEGURO_SANDBOX = True # se o valor for True, as requisições a api serão feitas usando o PagSeguro Sandbox.
-PAGSEGURO_LOG_IN_MODEL = True #
+PAGSEGURO_SANDBOX = True
+PAGSEGURO_LOG_IN_MODEL = True
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -88,6 +88,11 @@ DATABASES = {
     }
 }
 
+import dj_database_url
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
@@ -121,6 +126,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+SECURE_REDIRECT_EXEMPT = 'retorno/pagseguro/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/

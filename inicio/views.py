@@ -3,7 +3,6 @@ from pagseguro.api import PagSeguroApiTransparent
 from django.http import HttpResponse
 from inicio.models import PaymentPagSeguro, ItemPayment
 
-
 # Create your views here.
 def index(request):
     context = {}
@@ -17,11 +16,11 @@ def index(request):
 
 def checkout(request):
     payment = PaymentPagSeguro()
-    payment.sender_name = "Alexandre"
+    payment.sender_name = "Alexandre Sebrao"
     payment.sender_area_code = "47"
     payment.sender_phone = "992752990"
-    payment.sender_email = "alexandre.sebrao@gmail.com"
-    payment.sender_cpf = "12345678901234"
+    payment.sender_email = "alexandre.sebrao@sandbox.pagseguro.com.br"
+    payment.sender_cpf = "11335624775"
     payment.shipping_street = "Rua Sob Desce desaparece"
     payment.shipping_number = 12
     payment.shipping_complement = ""
@@ -42,4 +41,13 @@ def checkout(request):
     item.save()
 
     payment.checkout(request.POST['sender_hash'])
+    request.session['url'] = payment.boleto_url()
+    request.session['payment'] = "boleto"
     return HttpResponse('<h1>Pronto :()</h1>')
+
+
+def sucesso(request):
+    if (request.session['payment'] == 'boleto'):
+        context = {'url': request.session['url']}
+        template = "sucesso.html"
+        return render(request, template, context)
