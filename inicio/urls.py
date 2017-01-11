@@ -4,6 +4,7 @@ from . import views
 
 urlpatterns = [
     # ex: /polls/
+    url(r'checkout/$', views.checkout, name='checkout'),
     url(r'^$', views.index, name='index'),
-    url(r'/checkout/^$', views.checkout, name='checkout'),
+
 ]
