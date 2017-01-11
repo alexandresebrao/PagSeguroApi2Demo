@@ -80,7 +80,14 @@
 
             </div>
           </div>
-          <div hidden id="boleto">Aqui fica o pagamento do boleto</div>
+          <div hidden class="panel panel-primary" id="boleto">
+              <div class="panel-heading">
+                <h3 class="panel-title">Boleto Bancario</h3>
+              </div>
+              <div class="panel-body">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<button id="checkoutboleto">Pagar com boleto bancário</button>
+              </div>
+            </div>
           <div hidden id="creditCard">Aqui fica o pagamento do Cartão</div>
       </div>
     </div><!-- /.container -->
@@ -134,20 +141,20 @@ $('#cartaodecreditonum').keypress(function() {
     });
 });
 
-$('#checkout').click(function(){
-
-    var x = PagSeguroDirectPayment.getSenderHash();
+$('#checkoutboleto').click(function(){
     $.ajax
     ({
         url: '/checkout/',
-        data: {"sender_hash": x.toString(),
-            "csrfmiddlewaretoken" : '{{csrf_token}}' },
+        data: {"sender_hash": PagSeguroDirectPayment.getSenderHash(),
+            "csrfmiddlewaretoken" : '{{csrf_token}}',
+            "payment" : 'boleto'
+        },
         type: 'post',
         success: function(result)
         {
-            $("#hashvalue").text(x);
+            window.location.href = "sucesso/";
         }
-    });
+    })
 });
 
 </script>
