@@ -30,7 +30,7 @@ SECRET_KEY = '_-_1&#p(#3-v%8ki-g631!b7-*e2$n!9#)09o*&qci!y(rj2ks'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.25.8', 'ancient-scrubland-44737.herokuapp.com']
+ALLOWED_HOSTS = ['192.168.25.8', 'pagsegurowebclassicos.herokuapp.com']
 
 
 # Application definition
