@@ -12,10 +12,31 @@
     <script type="text/javascript">
     $( document ).ready(function() {
         PagSeguroDirectPayment.setSessionId('{{session_id}}');
-        console.log(PagSeguroDirectPayment.getSenderHash())
-        $('#sender_hash').val(PagSeguroDirectPayment.getSenderHash());
+        console.log()
 
     });
+    $('.reserve-button').click(function(){
+
+    var book_id = $(this).parent().data('id');
+
+    $.ajax
+    ({
+        url: '/checkout/',
+        data: {"sender_hash": PagSeguroDirectPayment.getSenderHash()},
+        type: 'post',
+        success: function(result)
+        {
+            $('.modal-box').text(result).fadeIn(700, function()
+            {
+                setTimeout(function()
+                {
+                    $('.modal-box').fadeOut();
+                }, 2000);
+            });
+        }
+    });
+});
+</script>
     </script>
 
       <title>Starter Template for Bootstrap</title>
@@ -71,6 +92,7 @@
         <p>
             <form>{%csrf_token%}</form>
             <input type="hidden" id="sender_hash" name="sender_hash" value="" />
+            <button type="button" name="checkout" value="Pagar" id="checkout"/>
         </form>
         </p>
       </div>
