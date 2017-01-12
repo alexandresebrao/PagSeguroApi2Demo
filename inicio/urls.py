@@ -6,7 +6,7 @@ urlpatterns = [
     # ex: /polls/
     url(r'checkout/$', views.checkout, name='checkout'),
     url(r'sucesso/$', views.sucesso, name='sucesso'),
-    url(r'historico/$', views.sucesso, name='sucesso'),
+    url(r'historico/$', views.transacoes, name='historico'),
     url(r'^$', views.index, name='index'),
 
 ]
