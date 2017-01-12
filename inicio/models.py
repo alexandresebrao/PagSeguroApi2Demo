@@ -28,7 +28,7 @@ class PaymentPagSeguro(models.Model):
     sender_phone = models.CharField(max_length=20)
     sender_email = models.TextField()
     sender_cpf = models.CharField(max_length=11)
-    sender_birthday = models.DateField()
+    sender_birthday = models.DateField(blank=True,null=True)
     shipping_street = models.TextField()
     shipping_number = models.IntegerField(blank=True, null=True)
     shipping_complement = models.TextField(blank=True, null=True)
