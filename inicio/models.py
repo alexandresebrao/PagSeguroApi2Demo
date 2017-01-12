@@ -51,7 +51,7 @@ class PaymentPagSeguro(models.Model):
         if (self.type == 1):
             api.set_payment_method('boleto')
         data = api.checkout()
-        self.pagseguro_code = data['transaction']['code']
+        self.pagseguro_code = data['transaction']['reference']
         self.save()
         boleto = Boleto()
         boleto.url = data['transaction']['paymentLink']
