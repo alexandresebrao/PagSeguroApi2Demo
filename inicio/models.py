@@ -28,6 +28,7 @@ class PaymentPagSeguro(models.Model):
     sender_phone = models.CharField(max_length=20)
     sender_email = models.TextField()
     sender_cpf = models.CharField(max_length=11)
+    sender_birthday = models.DateField()
     shipping_street = models.TextField()
     shipping_number = models.IntegerField(blank=True, null=True)
     shipping_complement = models.TextField(blank=True, null=True)
@@ -40,6 +41,7 @@ class PaymentPagSeguro(models.Model):
     status = models.CharField(max_length=2, choices=TRANSACTION_STATUS,
                               blank=True, null=True)
     pagseguro_code = models.TextField(blank=True, null=True)
+    amount = models.FloatField()
 
     def sender_dictionary(self):
         return {'name': self.sender_name, 'area_code': self.sender_area_code,
@@ -54,7 +56,7 @@ class PaymentPagSeguro(models.Model):
                 'city': self.shipping_city,
                 'state': self.shipping_state, 'country': self.shipping_country}
 
-    def checkout(self, sender_hash):
+    def checkout_boleto(self, sender_hash):
         # Instancia a parte da api do Pagseguro
         api = PagSeguroApiTransparent()
 
@@ -64,17 +66,36 @@ class PaymentPagSeguro(models.Model):
         api.set_sender_hash(sender_hash)
         api.set_sender(**self.sender_dictionary())
         api.set_shipping(**self.shipping_dictionary())
-        if (self.type == 1):
-            api.set_payment_method('boleto')
+        api.set_payment_method('boleto')
         data = api.checkout()
-
-        print data
         self.pagseguro_code = data['transaction']['code']
         self.save()
         boleto = Boleto()
         boleto.url = data['transaction']['paymentLink']
         boleto.payment = self
         boleto.save()
+
+    def checkout_cartao(self, sender_hash, token):
+        api = PagSeguroApiTransparent()
+        for item in self.itempayment_set.all():
+            api.add_item(item.pagseguroitem())
+        api.set_sender_hash(sender_hash)
+        api.set_sender(**self.sender_dictionary())
+        api.set_shipping(**self.shipping_dictionary())
+        api.set_payment_method('creditCard')
+        api.api.set_creditcard_token(token)
+        data = {'quantity': 1, 'value': "%.2f" % self.amount,
+                'name': self.sender_name,
+                'birth_date': "%s/%s/%s" % (self.sender_birthday.day,
+                                            self.sender_birthday.month,
+                                            self.sender_birthday.year),
+                'cpf': self.sender_cpf, 'area_code': self.sender_area_code,
+                'phone': self.sender_area_code}
+
+        api.set_creditcard_data(**data)
+        api.set_creditcard_billing_address(**self.shipping_dictionary())
+        api.set_sender_hash(sender_hash)
+        data = api.checkout()
 
     def boleto_url(self):
         return Boleto.objects.get(payment=self).url

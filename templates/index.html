@@ -58,13 +58,14 @@
             {% bootstrap_messages %}
 
       <div class="starter-template">
-          <div hidden class="panel panel-info" id="PaymentOptionPanel">
+          <div class="panel panel-info" id="PaymentOptionPanel">
               <div class="panel-heading">
                 <h3 class="panel-title">Formas de Pagamento</h3>
               </div>
             <div class="panel-body">
-                <table height="100%" width="100%">
-
+                <span id="loading">Carregando opções de pagamento</span>
+                <span hidden id="errorloading">O PagSeguro não retornou os dados por algum erro do sistema, atualize a pagina e tente novamente, caso o problema persista entre em contato conosco.</span>
+                <table id="formaspagamento" hidden height="100%" width="100%">
                     <tbody>
                         <tr>
                             <td><img src="http://www.edersonferreira.com.br/wp-content/uploads/2014/01/boleto_01-20.jpg" height="200px" width="350px"/></td>
@@ -87,8 +88,79 @@
               <div class="panel-body">
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<button id="checkoutboleto">Pagar com boleto bancário</button>
               </div>
-            </div>
-          <div hidden id="creditCard">Aqui fica o pagamento do Cartão</div>
+          </div>
+          <div hidden class="panel panel-primary" id="creditCard">
+              <div class="panel-heading">
+                <h3 class="panel-title">Cartão de Crédito</h3>
+              </div>
+              <div class="panel-body">
+                  <div class="form-group">
+                      <label for="cardNumber">Numero do Cartão</label>
+                      <div class="input-group">
+                          <input
+                              id="cartaodecreditonum"
+                              type="tel"
+                              class="form-control"
+                              name="cardNumber"
+                              placeholder="Valid Card Number"
+                              autocomplete="cc-number"
+                              required autofocus
+                          />
+                          <span class="input-group-addon"><img id="creditBrand" /></span>
+                      </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-xs-3 col-md-3">
+                         <div class="form-group" id="dateFilter">
+                             <label for="cardExpiry"><span class="hidden-xs">Expiração</span><span class="visible-xs-inline">MÊS</span> EXPIRAÇÃO</label>
+                             <input
+                                 id="month"
+                                 type="tel"
+                                 class="form-control"
+                                 name="cardExpiry"
+                                 placeholder="Mês Ano ex: 01 (Incluir Zeros)"
+                                 autocomplete="cc-exp"
+                                 maxlength="2"
+                                 required
+                             />
+                         </div>
+                     </div>
+                     <div class="col-xs-4 col-md-4">
+                         <div class="form-group" id="dateFilter">
+                             <label for="cardExpiry"><span class="hidden-xs">Expiração</span><span class="visible-xs-inline">ANO</span> EXPIRAÇÃO</label>
+                             <input
+                                 id="year"
+                                 type="tel"
+                                 class="form-control"
+                                 name="cardExpiry"
+                                 placeholder="Ano AAAA"
+                                 autocomplete="cc-exp"
+                                 maxlength="4"
+                                 required
+                             />
+                         </div>
+                     </div>
+                     <div class="col-xs-5 col-md-5 pull-right">
+                         <div class="form-group">
+                             <label for="cardCVC">Código de Verificação</label>
+                             <input
+                                 id="cvv"
+                                 type="tel"
+                                 class="form-control"
+                                 name="cardCVC"
+                                 placeholder="CVV"
+                                 autocomplete="cc-csc"
+                                 maxlength="3"
+                                 required
+                             />
+                         </div>
+                     </div>
+                 </div>
+                 <div class="row">
+                     <button id="checkoutcredit">Pagar com Cartão de Crédito</button>
+                 </div>
+              </div>
+          </div>
       </div>
     </div><!-- /.container -->
 
@@ -103,10 +175,12 @@ $( document ).ready(function() {
     PagSeguroDirectPayment.getPaymentMethods({
         amount: 500.00,
         success: function(response) {
-            $('#PaymentOptionPanel').show();
+            $('#formaspagamento').show();
+            $('#loading').hide();
         },
         error: function(response) {
-            //tratamento do erro
+            $('#loading').hide();
+            $('#errorloading').show();
         },
         complete: function(response) {
             //tratamento comum para todas chamadas
@@ -130,17 +204,65 @@ $('input:radio[name="changePaymentMethod"]').change(
         }
 });
 
+// Pagamento com cartão de crédito
+var brand_id;
+
 $('#cartaodecreditonum').keypress(function() {
     PagSeguroDirectPayment.getBrand({
         cardBin: $('#cartaodecreditonum').val(),
         success: function(response) {
-            $('#PaymentOptionPanel').hide();
-        }
-        // error: /*{função de callback para chamadas que falharam}*/,
+            brand_id = (response["brand"]["name"]);
+            var imgsrc = "https://stc.pagseguro.uol.com.br/public/img/payment-methods-flags/42x20/"+brand_id+".png";
+            $("#creditBrand").attr("src",imgsrc);
+        },
+        error: function(response) {
+            $("#creditBrand").attr("src","");
+        },
         // complete: /*{função de callback para todas chamadas}*/
     });
 });
 
+
+
+$('#checkoutcredit').click(function(){
+    var token;
+
+    var param = {
+        cardNumber: $('#cartaodecreditonum').val(),
+        cvv: $("#cvv").val(),
+        expirationMonth: $("#month").val(),
+        expirationYear: $("#year").val(),
+        brand: brand_id,
+        success: function(response) {
+            token = response['card']['token'];
+        },
+        error: function(response) {
+            console.log(response);
+        },
+        complete: function(response) {
+            //tratamento comum para todas chamadas
+        }
+    }
+
+    PagSeguroDirectPayment.createCardToken(param);
+    $.ajax
+    ({
+        url: '/checkout/',
+        data: {"sender_hash": PagSeguroDirectPayment.getSenderHash(),
+            "csrfmiddlewaretoken" : '{{csrf_token}}',
+            "payment" : 'creditCard',
+            "token" : token,
+        },
+        type: 'post',
+        success: function(result)
+        {
+            window.location.href = "sucesso/";
+        }
+    })
+});
+
+
+// Pagamento com boleto
 $('#checkoutboleto').click(function(){
     $.ajax
     ({
@@ -157,6 +279,9 @@ $('#checkoutboleto').click(function(){
     })
 });
 
+$(function() {
+  $('#dateFilter').on('keydown', '#expdate', function(e){-1!==$.inArray(e.keyCode,[46,8,9,27,13,110,190])||/65|67|86|88/.test(e.keyCode)&&(!0===e.ctrlKey||!0===e.metaKey)||35<=e.keyCode&&40>=e.keyCode||(e.shiftKey||48>e.keyCode||57<e.keyCode)&&(96>e.keyCode||105<e.keyCode)&&e.preventDefault()});
+})
 </script>
 {% bootstrap_javascript %}
 </html>

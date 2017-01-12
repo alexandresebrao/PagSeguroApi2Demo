@@ -29,7 +29,11 @@ def checkout(request):
     payment.shipping_city = "Rio de Janeiro"
     payment.shipping_state = "RJ"
     payment.shipping_country = "BRA"
-    payment.type = 1
+    payment.amount = 29
+    if request.POST['payment'] == 'boleto':
+        payment.type = 1
+    else:
+        payment.type = 2
     payment.status = 0
     payment.save()
 
@@ -41,14 +45,21 @@ def checkout(request):
     item.payment = payment
     item.save()
 
-    payment.checkout(request.POST['sender_hash'])
-    request.session['url'] = payment.boleto_url()
-    request.session['payment'] = "boleto"
+    if request.POST['payment'] == 'boleto':
+        payment.checkout_boleto(request.POST['sender_hash'])
+        request.session['url'] = payment.boleto_url()
+    else:
+        payment.checkout(request.POST['sender_hash'], request.POST['token'])
+
+    request.session['payment'] = request.POST['payment']
     return HttpResponse('<h1>Pronto :()</h1>')
 
 
 def sucesso(request):
     if (request.session['payment'] == 'boleto'):
         context = {'url': request.session['url']}
-        template = "sucesso.html"
-        return render(request, template, context)
+        template = "sucesso_boleto.html"
+    else:
+        context = {'ok'}
+        template = "sucesso_cartao.html"
+    return render(request, template, context)
