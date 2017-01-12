@@ -103,7 +103,6 @@ class PaymentPagSeguro(models.Model):
         data = api.checkout()
         if not data['success']:
             print data
-        else:
             self.delete()
 
     def boleto_url(self):
