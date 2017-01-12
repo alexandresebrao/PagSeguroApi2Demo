@@ -229,7 +229,7 @@ $('#cartaodecreditonum').keypress(function() {
 
 $('#checkoutcredit').click(function(){
 
-    $('#errorCartao').show();
+    $('#errorCartao').hide();
     PagSeguroDirectPayment.createCardToken({
         cardNumber: $('#cartaodecreditonum').val(),
         cvv: $("#cvv").val(),
