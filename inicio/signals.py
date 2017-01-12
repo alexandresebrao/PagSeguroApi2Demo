@@ -4,6 +4,7 @@ from inicio.models import PaymentPagSeguro
 
 def load_signal(sender, transaction, **kwargs):
     reference = transaction['code']
+    print transaction
     payment = PaymentPagSeguro.objects.get(pagseguro_code=reference)
     payment.status = transaction['status']
     payment.save()
