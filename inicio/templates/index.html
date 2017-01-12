@@ -169,6 +169,15 @@ $('input:radio[name="changePaymentMethod"]').change(
 });
 
 // Pagamento com cartão de crédito
+// Disable Button function
+jQuery.fn.extend({
+    disable: function(state) {
+        return this.each(function() {
+            this.disabled = state;
+        });
+    }
+});
+
 var brand_id;
 
 $('#cartaodecreditonum').keypress(function() {
