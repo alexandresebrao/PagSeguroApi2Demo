@@ -106,6 +106,8 @@ class PaymentPagSeguro(models.Model):
         if not data['success']:
             print data
             self.delete()
+        self.pagseguro_code = data['transaction']['code']
+        self.save()
 
     def boleto_url(self):
         return Boleto.objects.get(payment=self).url

@@ -12,6 +12,9 @@ def index(request):
     if not data['success']:
         return HttpResponse('<h1>Error :()</h1>')
     context['session_id'] = data['session_id']
+    context['anos'] = range(datetime.datetime.now().year,
+                            int(datetime.datetime.now().year)+20)
+
     template = 'index.html'
     return render(request, template, context)
 
