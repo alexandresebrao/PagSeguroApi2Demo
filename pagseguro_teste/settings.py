@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'pagseguro',
     'bootstrap3',
     'inicio.apps.InicioConfig',
+    'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
@@ -55,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'pagseguro_teste.urls'
@@ -132,4 +134,4 @@ SECURE_REDIRECT_EXEMPT = 'retorno/pagseguro/'
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR+'/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

@@ -58,6 +58,7 @@ sqlparse==0.1.16
 suds==0.4
 uritemplate==0.6
 w3lib==1.11.0
+whitenoise==3.2.3
 wsgiref==0.1.2
 xmltodict==0.10.2
 zope.interface==4.1.2
