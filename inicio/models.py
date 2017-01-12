@@ -83,7 +83,7 @@ class PaymentPagSeguro(models.Model):
         api.set_sender(**self.sender_dictionary())
         api.set_shipping(**self.shipping_dictionary())
         api.set_payment_method('creditCard')
-        api.api.set_creditcard_token(token)
+        api.set_creditcard_token(token)
         data = {'quantity': 1, 'value': "%.2f" % self.amount,
                 'name': self.sender_name,
                 'birth_date': "%s/%s/%s" % (self.sender_birthday.day,
