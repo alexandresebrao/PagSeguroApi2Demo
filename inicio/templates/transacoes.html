@@ -30,3 +30,11 @@
           </div>
       </div>
     </div><!-- /.container -->
+    {%block javascript%}
+    <script type="text/javascript">
+        $( document ).ready(function() {
+            $("#lihome").attr("class","");
+            $("#lihistorico").attr("class","active");
+        });
+    </script>
+    {%endblock javascript%}
