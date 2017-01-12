@@ -1,5 +1,5 @@
 {%extends 'base.html'%}{%load bootstrap3%}
-
+    {%block body%}
     <div class="container">
 
             {# Display django.contrib.messages as Bootstrap alerts #}
@@ -30,6 +30,7 @@
           </div>
       </div>
     </div><!-- /.container -->
+    {%endblock%}
     {%block javascript%}
     <script type="text/javascript">
         $( document ).ready(function() {
