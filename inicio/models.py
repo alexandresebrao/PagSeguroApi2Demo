@@ -10,18 +10,18 @@ class PaymentPagSeguro(models.Model):
         ('2', 'cartão'),
     )
     TRANSACTION_STATUS = (
-        ('INITIATED', 'Iniciado'),
-        ('WAITING_PAYMENT', 'Aguardando pagamento'),
-        ('IN_REVIEW', 'Em revisão'),
-        ('APPROVED', 'Aprovado'),
-        ('AVAILABLE', 'Disponível'),
-        ('IN_DISPUTE', 'Em disputa'),
-        ('RETURNED', 'Retornado'),
-        ('CANCELLED', 'Cancelado'),
-        ('SELLER_CHARGEBACK', 'Estorno'),
-        ('CONTESTATION', 'Contestação'),
-        ('PROCESSING_REFUND', 'Processando estorno'),
-        ('PRE_AUTHORIZED', 'Pré autorizado')
+        ('0', 'Iniciado'),
+        ('1', 'Aguardando pagamento'),
+        ('2', 'Em revisão'),
+        ('3', 'Aprovado'),
+        ('4', 'Disponível'),
+        ('5', 'Em disputa'),
+        ('6', 'Retornado'),
+        ('7', 'Cancelado'),
+        ('8', 'Estorno'),
+        ('9', 'Contestação'),
+        ('10', 'Processando estorno'),
+        ('11', 'Pré autorizado')
     )
     sender_name = models.TextField()
     sender_area_code = models.IntegerField()
@@ -37,7 +37,7 @@ class PaymentPagSeguro(models.Model):
     shipping_state = models.CharField(max_length=2)
     shipping_country = models.CharField(max_length=3)
     type = models.CharField(choices=TYPE_PAYMENT, max_length=1)
-    status = models.CharField(max_length=18, choices=TRANSACTION_STATUS,
+    status = models.CharField(max_length=2, choices=TRANSACTION_STATUS,
                               blank=True, null=True)
     pagseguro_code = models.TextField(blank=True, null=True)
 
