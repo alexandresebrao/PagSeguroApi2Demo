@@ -189,7 +189,7 @@ $('#cartaodecreditonum').keypress(function() {
 
 
 $('#checkoutcredit').click(function(){
-    $("#checkoutcredit").attr("disabled","true")
+    $("#checkoutcredit").disabled(true)
     $('#errorcode10000').hide();
     $('#errorcode10001').hide();
     $('#errorcode10002').hide();
@@ -221,7 +221,7 @@ $('#checkoutcredit').click(function(){
                     window.location.href = "sucesso/";
                 },
                 error: function(response) {
-                    $("#checkoutcredit").attr("disabled","false")
+                    $("#checkoutcredit").disabled(false)
                     $('#errorCartao').show();
                     $.each(response, function(key, element) {
                         if ((key == "10000") || (key == "10001") || (key = "30400")) {
