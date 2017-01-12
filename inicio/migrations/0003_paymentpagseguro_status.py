@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='paymentpagseguro',
             name='status',
-            field=models.CharField(choices=[('INITIATED', 'Iniciado'), ('WAITING_PAYMENT', 'Aguardando pagamento'), ('IN_REVIEW', 'Em revis\xe3o'), ('APPROVED', 'Aprovado'), ('AVAILABLE', 'Dispon\xedvel'), ('IN_DISPUTE', 'Em disputa'), ('RETURNED', 'Retornado'), ('CANCELLED', 'Cancelado'), ('SELLER_CHARGEBACK', 'Estorno'), ('CONTESTATION', 'Contesta\xe7\xe3o'), ('PROCESSING_REFUND', 'Processando estorno'), ('PRE_AUTHORIZED', 'Pr\xe9 autorizado')], max_length=18),
+            field=models.CharField(choices=[('INITIATED', 'Iniciado'), ('WAITING_PAYMENT', 'Aguardando pagamento'), ('IN_REVIEW', 'Em revis\xe3o'), ('APPROVED', 'Aprovado'), ('AVAILABLE', 'Dispon\xedvel'), ('IN_DISPUTE', 'Em disputa'), ('RETURNED', 'Retornado'), ('CANCELLED', 'Cancelado'), ('SELLER_CHARGEBACK', 'Estorno'), ('CONTESTATION', 'Contesta\xe7\xe3o'), ('PROCESSING_REFUND', 'Processando estorno'), ('PRE_AUTHORIZED', 'Pr\xe9 autorizado')], default='APPROVED', max_length=18),
             preserve_default=False,
         ),
     ]

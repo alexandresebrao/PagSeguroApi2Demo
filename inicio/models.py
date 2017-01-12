@@ -38,7 +38,7 @@ class PaymentPagSeguro(models.Model):
     shipping_country = models.CharField(max_length=3)
     type = models.CharField(choices=TYPE_PAYMENT, max_length=1)
     status = models.CharField(max_length=18, choices=TRANSACTION_STATUS,
-                              blank=True,null=True)
+                              blank=True, null=True)
     pagseguro_code = models.TextField(blank=True, null=True)
 
     def sender_dictionary(self):
