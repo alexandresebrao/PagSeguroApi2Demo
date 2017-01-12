@@ -49,7 +49,7 @@ def checkout(request):
         payment.checkout_boleto(request.POST['sender_hash'])
         request.session['url'] = payment.boleto_url()
     else:
-        payment.checkout(request.POST['sender_hash'], request.POST['token'])
+        payment.checkout_cartao(request.POST['sender_hash'], request.POST['token'])
 
     request.session['payment'] = request.POST['payment']
     return HttpResponse('<h1>Pronto :()</h1>')
