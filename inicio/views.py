@@ -30,6 +30,7 @@ def checkout(request):
     payment.shipping_state = "RJ"
     payment.shipping_country = "BRA"
     payment.type = 1
+    payment.status = 'INITIATED'
     payment.save()
 
     item = ItemPayment()
