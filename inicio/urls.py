@@ -8,5 +8,4 @@ urlpatterns = [
     url(r'sucesso/$', views.sucesso, name='sucesso'),
     url(r'historico/$', views.historico, name='historico'),
     url(r'^$', views.index, name='index'),
-
 ]
