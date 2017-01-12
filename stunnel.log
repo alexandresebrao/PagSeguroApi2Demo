@@ -270,3 +270,4 @@
 2017.01.11 13:57:50 LOG5[3348:139804762584832]: Service [https] accepted connection from 192.168.25.3:53449
 2017.01.11 13:57:50 LOG3[3348:139804762584832]: connect_blocking: connect 0.0.0.0:8001: Connection refused (111)
 2017.01.11 13:57:50 LOG5[3348:139804762584832]: Connection reset: 0 byte(s) sent to SSL, 0 byte(s) sent to socket
+2017.01.12 16:55:09 LOG5[3348:139804762629952]: Terminated
