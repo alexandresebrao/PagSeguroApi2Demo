@@ -159,6 +159,9 @@
                  <div class="row">
                      <button id="checkoutcredit">Pagar com Cartão de Crédito</button>
                  </div>
+                 <div class="row" hidden id="errorCartao">
+                    <span>Error nos dados do cartão, verifique se está tudo correto</span>
+                </div>
               </div>
           </div>
       </div>
@@ -225,40 +228,36 @@ $('#cartaodecreditonum').keypress(function() {
 
 
 $('#checkoutcredit').click(function(){
-    var token;
 
-    var param = {
+    $('#errorCartao').show();
+    PagSeguroDirectPayment.createCardToken({
         cardNumber: $('#cartaodecreditonum').val(),
         cvv: $("#cvv").val(),
         expirationMonth: $("#month").val(),
         expirationYear: $("#year").val(),
         brand: brand_id,
         success: function(response) {
-            token = response['card']['token'];
+            $.ajax
+            ({
+                url: '/checkout/',
+                data: {"sender_hash": PagSeguroDirectPayment.getSenderHash(),
+                    "csrfmiddlewaretoken" : '{{csrf_token}}',
+                    "payment" : 'creditCard',
+                    "token" : response['card']['token'];
+                },
+                type: 'post',
+                success: function(result)
+                {
+                    window.location.href = "sucesso/";
+                }
+            })
         },
         error: function(response) {
-            console.log(response);
-        },
-        complete: function(response) {
-            //tratamento comum para todas chamadas
+            $('#errorCartao').show();
         }
-    }
+    );
 
-    PagSeguroDirectPayment.createCardToken(param);
-    $.ajax
-    ({
-        url: '/checkout/',
-        data: {"sender_hash": PagSeguroDirectPayment.getSenderHash(),
-            "csrfmiddlewaretoken" : '{{csrf_token}}',
-            "payment" : 'creditCard',
-            "token" : token,
-        },
-        type: 'post',
-        success: function(result)
-        {
-            window.location.href = "sucesso/";
-        }
-    })
+
 });
 
 
