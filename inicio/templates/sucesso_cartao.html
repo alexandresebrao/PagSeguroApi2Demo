@@ -59,75 +59,12 @@
 
       <div class="starter-template">
 
-          <div id="creditCard"><a href="{{url}}">Clique aqui para imprimir o boleto</div>
+          <div id="creditCard">Seu pagamento por cartão de crédito foi concluido</div>
       </div>
     </div><!-- /.container -->
 
 
 </body>
-<script type="text/javascript" src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script type="text/javascript">
-
-$( document ).ready(function() {
-    PagSeguroDirectPayment.setSessionId('{{session_id}}');
-    PagSeguroDirectPayment.getPaymentMethods({
-        amount: 500.00,
-        success: function(response) {
-            $('#PaymentOptionPanel').show();
-        },
-        error: function(response) {
-            //tratamento do erro
-        },
-        complete: function(response) {
-            //tratamento comum para todas chamadas
-        }
-    });
-});
-
-$('input:radio[name="changePaymentMethod"]').change(
-    function(){
-
-        // checks that the clicked radio button is the one of value 'Yes'
-        // the value of the element is the one that's checked (as noted by @shef in comments)
-        if ($(this).val() == 'boleto') {
-
-            $("#creditCard").hide();
-            $("#boleto").show();
-        }
-        else {
-            $("#creditCard").show();
-            $("#boleto").hide();
-        }
-});
-
-$('#cartaodecreditonum').keypress(function() {
-    PagSeguroDirectPayment.getBrand({
-        cardBin: $('#cartaodecreditonum').val(),
-        success: function(response) {
-            $('#PaymentOptionPanel').hide();
-        }
-        // error: /*{função de callback para chamadas que falharam}*/,
-        // complete: /*{função de callback para todas chamadas}*/
-    });
-});
-
-$('#checkoutboleto').click(function(){
-    $.ajax
-    ({
-        url: '/checkout/',
-        data: {"sender_hash": PagSeguroDirectPayment.getSenderHash(),
-            "csrfmiddlewaretoken" : '{{csrf_token}}',
-            "payment" : 'boleto'
-        },
-        type: 'post',
-        success: function(result)
-        {
-            window.location.href = "sucesso/";
-        }
-    })
-});
-
-</script>
 {% bootstrap_javascript %}
 </html>

@@ -53,7 +53,7 @@ def checkout(request):
     else:
         payment.checkout_cartao(request.POST['sender_hash'],
                                 request.POST['token'],
-                                datetime.date(1985,02,24))
+                                datetime.date(1985, 02, 24))
 
     request.session['payment'] = request.POST['payment']
     return HttpResponse('<h1>Pronto :()</h1>')
@@ -66,4 +66,11 @@ def sucesso(request):
     else:
         context = {'ok'}
         template = "sucesso_cartao.html"
+    return render(request, template, context)
+
+
+def historico(request):
+    payments = PaymentPagSeguro.objects.all().order_by('-created_at')
+    template = "transacoes.html"
+    context = {'pagamentos': payments}
     return render(request, template, context)
