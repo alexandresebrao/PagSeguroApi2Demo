@@ -132,4 +132,4 @@ SECURE_REDIRECT_EXEMPT = 'retorno/pagseguro/'
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/static/'
+STATIC_ROOT = BASE_DIR+'/static/'
