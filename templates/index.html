@@ -249,11 +249,11 @@ $('#checkoutcredit').click(function(){
                 success: function(result)
                 {
                     window.location.href = "sucesso/";
+                },
+                error: function(response) {
+                    $('#errorCartao').show();
                 }
             })
-        },
-        error: function(response) {
-            $('#errorCartao').show();
         }
     });
 

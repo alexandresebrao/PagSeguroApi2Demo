@@ -75,7 +75,9 @@ class PaymentPagSeguro(models.Model):
         boleto.payment = self
         boleto.save()
 
-    def checkout_cartao(self, sender_hash, token):
+    def checkout_cartao(self, sender_hash, token, birthday_date):
+        self.sender_birthday = birthday_date
+        self.save()
         api = PagSeguroApiTransparent()
         for item in self.itempayment_set.all():
             api.add_item(item.pagseguroitem())
@@ -84,18 +86,25 @@ class PaymentPagSeguro(models.Model):
         api.set_shipping(**self.shipping_dictionary())
         api.set_payment_method('creditCard')
         api.set_creditcard_token(token)
+        if (self.sender_birthday):
+            birthday = "%02d/%02d/%s" % (self.sender_birthday.day,
+                                         self.sender_birthday.month,
+                                         self.sender_birthday.year)
+        else:
+            birthday = ""
         data = {'quantity': 1, 'value': "%.2f" % self.amount,
                 'name': self.sender_name,
-                'birth_date': "%s/%s/%s" % (self.sender_birthday.day,
-                                            self.sender_birthday.month,
-                                            self.sender_birthday.year),
+                'birth_date': birthday,
                 'cpf': self.sender_cpf, 'area_code': self.sender_area_code,
-                'phone': self.sender_area_code}
-
+                'phone': "%s" % self.sender_phone}
         api.set_creditcard_data(**data)
         api.set_creditcard_billing_address(**self.shipping_dictionary())
         api.set_sender_hash(sender_hash)
         data = api.checkout()
+        if not data['success']:
+            print data
+        else:
+            self.delete()
 
     def boleto_url(self):
         return Boleto.objects.get(payment=self).url

@@ -2,6 +2,8 @@ from django.shortcuts import render
 from pagseguro.api import PagSeguroApiTransparent
 from django.http import HttpResponse
 from inicio.models import PaymentPagSeguro, ItemPayment
+import datetime
+
 
 # Create your views here.
 def index(request):
@@ -49,7 +51,9 @@ def checkout(request):
         payment.checkout_boleto(request.POST['sender_hash'])
         request.session['url'] = payment.boleto_url()
     else:
-        payment.checkout_cartao(request.POST['sender_hash'], request.POST['token'])
+        payment.checkout_cartao(request.POST['sender_hash'],
+                                request.POST['token'],
+                                datetime.date(1985,02,24))
 
     request.session['payment'] = request.POST['payment']
     return HttpResponse('<h1>Pronto :()</h1>')
