@@ -243,7 +243,7 @@ $('#checkoutcredit').click(function(){
                 data: {"sender_hash": PagSeguroDirectPayment.getSenderHash(),
                     "csrfmiddlewaretoken" : '{{csrf_token}}',
                     "payment" : 'creditCard',
-                    "token" : response['card']['token'];
+                    "token" : response['card']['token']
                 },
                 type: 'post',
                 success: function(result)
