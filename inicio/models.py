@@ -9,6 +9,20 @@ class PaymentPagSeguro(models.Model):
         ('1', 'boleto'),
         ('2', 'cartão'),
     )
+    TRANSACTION_STATUS = (
+        ('INITIATED', 'Iniciado'),
+        ('WAITING_PAYMENT', 'Aguardando pagamento'),
+        ('IN_REVIEW', 'Em revisão'),
+        ('APPROVED', 'Aprovado'),
+        ('AVAILABLE', 'Disponível'),
+        ('IN_DISPUTE', 'Em disputa'),
+        ('RETURNED', 'Retornado'),
+        ('CANCELLED', 'Cancelado'),
+        ('SELLER_CHARGEBACK', 'Estorno'),
+        ('CONTESTATION', 'Contestação'),
+        ('PROCESSING_REFUND', 'Processando estorno'),
+        ('PRE_AUTHORIZED', 'Pré autorizado')
+    )
     sender_name = models.TextField()
     sender_area_code = models.IntegerField()
     sender_phone = models.CharField(max_length=20)
@@ -23,6 +37,7 @@ class PaymentPagSeguro(models.Model):
     shipping_state = models.CharField(max_length=2)
     shipping_country = models.CharField(max_length=3)
     type = models.CharField(choices=TYPE_PAYMENT, max_length=1)
+    status = models.CharField(max_length=18, choices=TRANSACTION_STATUS)
     pagseguro_code = models.TextField(blank=True, null=True)
 
     def sender_dictionary(self):
